@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue事件绑定</title>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <!---->
+        <div id="root">
+            <h1>{{number}}</h1><!--插值表达式-->
+            <h2 v-text="number1"></h2>
+            <h2 v-html="number2"></h2>
+            <div v-text="content"></div><!--输出经过转义后的文本-->
+            <div v-html="content" ></div>
+            <div v-on:click="handleClick">{{content1}}</div>
+            <!--标签被点击 绑定一个事件 鼠标点击(模板内部函数)-->
+            <br />
+            <div @click="handleClick">{{msg}}</div>
+            <!--简写 用@表示触发事件-->
+        </div><!---->
+
+        
+        <script>
+            //vue实例 el后面对应的DOM节点
+            new Vue({
+                el:"#root",//挂载点
+                data:{//数据
+                    msg:"world",
+                    number:123,
+                    number1:456,
+                    number2:789,
+                    content:"<h1>hello</h1>",
+                    content1:'hello'
+                },
+                //定义网页调用的方法
+                methods:{
+                    handleClick:function(){
+                        this.msg="hello"//
+                        this.content1="world"//vue实例下data内部某属性的内容
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

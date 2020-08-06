@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="./vue.js"></script>
+        <script src="https://how2j.cn/study/fetch.min.js"></script>
+    </head>
+<body>
+<div id="hero">
+  
+</div>
+  
+<script>
+var url = "http://how2j.cn/study/json.txt"
+fetch(url).then(function(response) {
+    response.json().then(function (jsonObject) {
+        var jsonString = JSON.stringify(jsonObject)
+        document.getElementById("hero").innerHTML = "通过fetch获取到的json数据："+ jsonString;
+    })
+}).catch(function(err){
+    console.log("Fetch错误:"+err);
+})
+  
+</script>
+</body>
+</html>

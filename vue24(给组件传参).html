@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="./vue.js"></script>
+    </head>
+<style>
+div.product{
+  float:left;
+  border:1px solid lightGray;
+  width:200px;
+  margin:10px;
+  cursor: pointer;
+}
+</style>
+<body> 
+<div id="div1">
+    <product name="MAXFEEL休闲男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮"></product>
+    <product name="宾度 男士手包真皮大容量手拿包牛皮个性潮男包手抓包软皮信封包"></product>
+    <product name="唯美诺新款男士手包男包真皮大容量小羊皮手拿包信封包软皮夹包潮"></product>
+</div>
+  
+<script>
+Vue.component('product', {
+      props:['name'],
+      template: '<div class="product" >{{name}}</div>'
+    })
+ 
+new Vue({
+  el: '#div1'
+})
+</script>
+</body>
+</html>
